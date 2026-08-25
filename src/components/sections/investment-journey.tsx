@@ -43,26 +43,26 @@ export function InvestmentJourney() {
   const [hover, setHover] = useState<number | null>(null);
 
   return (
-    <section id="journey" className="relative overflow-hidden bg-[#0B0D10] py-24 lg:py-32">
-      <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+    <section id="journey" className="relative overflow-hidden bg-[#090B0E] py-16 lg:py-24 text-[#F7F5F2]">
+      <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
         <SectionHeading
           eyebrow="The Investment Journey"
           title="A disciplined path from"
           highlight="intent to legacy."
           description="Five deliberate stages, each designed to protect capital and compound returns — the process behind every portfolio we advise."
           align="center"
-          className="mx-auto mb-20 max-w-2xl"
+          className="mx-auto mb-12 max-w-2xl text-center"
         />
 
         <div ref={ref} className="relative">
-          {/* center line - desktop */}
-          <span className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-[#F7F5F2]/8 lg:block" />
+          {/* Center line - desktop */}
+          <span className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-white/10 lg:block" />
           <motion.span
             style={{ scaleY: lineScale, originY: 0 }}
-            className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-gradient-to-b from-[#C8A86B] via-[#C8A86B]/60 to-transparent lg:block"
+            className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-gradient-to-b from-[#C5A265] via-[#C5A265]/60 to-transparent lg:block"
           />
 
-          <div className="flex flex-col gap-12 lg:gap-0">
+          <div className="flex flex-col gap-5 lg:gap-6">
             {STEPS.map((s, i) => {
               const isRight = i % 2 === 1;
               return (
@@ -72,44 +72,47 @@ export function InvestmentJourney() {
                   onMouseEnter={() => setHover(i)}
                   onMouseLeave={() => setHover(null)}
                 >
-                  {/* node - desktop */}
+                  {/* Center Node Indicator - desktop */}
                   <span className="pointer-events-none absolute left-1/2 top-1/2 z-10 hidden h-5 w-5 -translate-x-1/2 -translate-y-1/2 items-center justify-center lg:flex">
                     <span
-                      className={`h-3 w-3 rounded-full border transition-all duration-500 ${
+                      className={`h-3 w-3 rounded-full border transition-all duration-300 ${
                         hover === i
-                          ? "border-[#C8A86B] bg-[#C8A86B] scale-125"
-                          : "border-[#F7F5F2]/25 bg-[#0B0D10]"
+                          ? "border-[#C5A265] bg-[#C5A265] scale-125"
+                          : "border-white/30 bg-[#090B0E]"
                       }`}
                     />
                   </span>
 
-                  {/* content alternating */}
+                  {/* Content Card (Alternating Left & Right) */}
                   <Reveal
                     direction={isRight ? "left" : "right"}
                     delay={i * 0.04}
-                    className={isRight ? "lg:col-start-2 lg:pl-16" : "lg:col-start-1 lg:pr-16 lg:text-right"}
+                    className={isRight ? "lg:col-start-2 lg:pl-10" : "lg:col-start-1 lg:pr-10"}
                   >
-                    <div className="group relative border border-[#F7F5F2]/8 bg-[#141519] p-6 transition-colors duration-500 hover:border-[#C8A86B]/40 lg:p-8">
-                      <div className={isRight ? "" : "lg:flex lg:flex-row-reverse lg:items-start lg:gap-5"}>
-                        <span className="font-serif text-5xl text-[#C8A86B]/30 transition-colors duration-500 group-hover:text-[#C8A86B]/60">
+                    <div className="group relative rounded-[16px] border border-white/10 bg-[#12151B]/90 p-5 sm:p-6 transition-all duration-300 hover:border-[#C5A265]/50 hover:shadow-xl">
+                      <div className="flex items-start gap-4">
+                        {/* Step Number */}
+                        <span className="font-serif text-2xl sm:text-3xl font-bold text-[#C5A265]/80 transition-colors duration-300 group-hover:text-[#C5A265]">
                           {s.no}
                         </span>
-                        <div className={isRight ? "" : "lg:text-left"}>
-                          <h3 className="mt-2 font-serif text-2xl text-[#F7F5F2]">
+
+                        {/* Title & Description */}
+                        <div className="flex-1 text-left">
+                          <h3 className="font-serif text-lg sm:text-xl font-bold text-white transition-colors group-hover:text-[#C5A265]">
                             {s.title}
                           </h3>
-                          <p className="mt-3 text-sm leading-relaxed text-[#F7F5F2]/60">
+                          <p className="mt-1.5 font-sans text-xs sm:text-sm leading-relaxed text-white/70">
                             {s.desc}
                           </p>
-                          <span className="mt-4 block h-px w-0 bg-[#C8A86B] transition-all duration-500 group-hover:w-12" />
+                          <span className="mt-3 block h-0.5 w-0 bg-[#C5A265] transition-all duration-300 group-hover:w-12" />
                         </div>
                       </div>
                     </div>
                   </Reveal>
 
-                  {/* mobile node */}
-                  <span className="absolute -left-[2px] top-2 flex h-4 w-4 items-center justify-center lg:hidden">
-                    <span className="h-2.5 w-2.5 rounded-full bg-[#C8A86B]" />
+                  {/* Mobile Dot Node */}
+                  <span className="absolute -left-[2px] top-4 flex h-3 w-3 items-center justify-center lg:hidden">
+                    <span className="h-2 w-2 rounded-full bg-[#C5A265]" />
                   </span>
                 </div>
               );

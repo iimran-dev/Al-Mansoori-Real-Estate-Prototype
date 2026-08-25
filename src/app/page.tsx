@@ -19,12 +19,11 @@ export default function Home() {
     <main className="flex min-h-screen flex-col bg-[#0B0D10]">
       <Header />
       <Hero />
-      <TrustMetrics />
+      {/*<TrustMetrics />*/}
       <Services />
-      <InvestmentIntelligence />
+      {/*<InvestmentIntelligence />*/}
       <FeaturedOpportunities />
       <WhyDubai />
-      <FounderStory />
       <InvestmentJourney />
       <TrackRecord />
       <DubaiFuture />

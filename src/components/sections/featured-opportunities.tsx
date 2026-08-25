@@ -3,146 +3,112 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowUpRight, MapPin, Building2, ArrowLeft, ArrowRight } from "lucide-react";
-import { SectionHeading } from "@/components/luxury/section-heading";
+import { MapPin, ArrowRight, ChevronRight, ChevronLeft } from "lucide-react";
 import { Reveal } from "@/components/luxury/reveal";
 
 type Property = {
   name: string;
   location: string;
-  developer: string;
+  specs: string;
   price: string;
   roi: string;
-  category: string;
-  potential: string;
+  tag: string;
   image: string;
 };
 
 const PROPERTIES: Property[] = [
   {
-    name: "Aurora Penthouse Collection",
-    location: "Downtown Dubai",
-    developer: "Emaar Properties",
-    price: "AED 4.2M",
-    roi: "7.4%",
-    category: "High Yield",
-    potential: "Strong rental demand near Burj Khalifa district; limited ultra-luxury inventory.",
-    image: "/images/property-penthouse.png",
-  },
-  {
-    name: "Palm Crescent Villas",
-    location: "Palm Jumeirah",
-    developer: "Nakheel",
-    price: "AED 9.8M",
-    roi: "6.9%",
-    category: "Luxury",
-    potential: "Waterfront scarcity with enduring capital appreciation on the Palm frond.",
-    image: "/images/property-villa.png",
-  },
-  {
-    name: "Skyline Residences",
-    location: "Business Bay",
-    developer: "Damac",
+    name: "Sobha One Tower",
+    location: "Sobha Hartland, Dubai",
+    specs: "1 - 4 BR Apartments",
     price: "AED 1.6M",
-    roi: "8.2%",
-    category: "Off Plan",
-    potential: "Launch-stage pricing with flexible 60/40 payment plan and canal frontage.",
-    image: "/images/property-offplan.png",
+    roi: "ROI up to 8.5%",
+    tag: "HIGH YIELD",
+    image: "/images/opportunities/sobha-one.jpg",
   },
   {
-    name: "Marina Gate Towers",
+    name: "Emaar Marina Shores",
     location: "Dubai Marina",
-    developer: "Select Group",
-    price: "AED 2.1M",
-    roi: "7.8%",
-    category: "High Yield",
-    potential: "Mature marina location with strong short-let yield and proven resale liquidity.",
-    image: "/images/property-penthouse.png",
+    specs: "1 - 3 BR Apartments",
+    price: "AED 2.2M",
+    roi: "ROI up to 7.8%",
+    tag: "OFF PLAN",
+    image: "/images/opportunities/marina-shores.jpg",
   },
   {
-    name: "Horizon Labour Accommodation",
-    location: "Dubai Investment Park",
-    developer: "Strategic Asset",
-    price: "AED 1.1M",
-    roi: "9.1%",
-    category: "Commercial",
-    potential: "Institutional-grade workforce housing with long corporate leases and steady yield.",
-    image: "/images/property-commercial.png",
+    name: "Palm Beach Towers",
+    location: "Palm Jumeirah",
+    specs: "2 - 4 BR Apartments",
+    price: "AED 5.8M",
+    roi: "ROI up to 6.5%",
+    tag: "LUXURY",
+    image: "/images/opportunities/palm-beach.jpg",
+  },
+  {
+    name: "JLT Business Tower",
+    location: "Jumeirah Lake Towers",
+    specs: "Office Spaces",
+    price: "AED 1.3M",
+    roi: "ROI up to 9.2%",
+    tag: "COMMERCIAL",
+    image: "/images/opportunities/jlt-tower.jpg",
   },
 ];
 
 function PropertyCard({ p }: { p: Property }) {
   return (
-    <article className="group relative h-[480px] w-[78vw] shrink-0 overflow-hidden border border-[#F7F5F2]/8 bg-[#141519] sm:w-[380px] lg:w-[420px]">
+    <article className="group relative h-[440px] w-[265px] sm:w-[290px] shrink-0 overflow-hidden rounded-[20px] border border-white/10 bg-[#12151B] transition-all duration-500 hover:border-[#C5A265]/50 hover:shadow-2xl">
+      {/* Background Image */}
       <div className="absolute inset-0 overflow-hidden">
         <Image
           src={p.image}
           alt={p.name}
           fill
-          sizes="(min-width:640px) 420px, 78vw"
-          className="object-cover opacity-70 transition-all duration-[1.2s] ease-out group-hover:scale-110 group-hover:opacity-90"
+          sizes="290px"
+          className="object-cover opacity-85 transition-transform duration-700 ease-out group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D10] via-[#0B0D10]/40 to-transparent" />
+        {/* Dark Vignette & Bottom Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#090B0E] via-[#090B0E]/60 to-transparent" />
       </div>
 
-      {/* top row */}
-      <div className="relative flex items-start justify-between p-5">
-        <span className="glass-gold px-3 py-1.5 text-[0.6rem] uppercase tracking-[0.22em] text-[#C8A86B]">
-          {p.category}
-        </span>
-        <span className="glass flex items-center gap-1.5 px-3 py-1.5">
-          <span className="h-1.5 w-1.5 rounded-full bg-[#C8A86B] animate-pulse-node" />
-          <span className="text-[0.6rem] uppercase tracking-[0.2em] text-[#F7F5F2]/70">
-            ROI {p.roi}
-          </span>
+      {/* Top Tag Pill */}
+      <div className="relative z-10 p-5">
+        <span className="inline-block rounded-full border border-white/10 bg-black/80 px-3 py-1 font-sans text-[0.6rem] font-bold uppercase tracking-[0.16em] text-white backdrop-blur-md">
+          {p.tag}
         </span>
       </div>
 
-      {/* bottom content */}
-      <div className="absolute inset-x-0 bottom-0 p-5">
-        <div className="flex items-center gap-2 text-[0.62rem] uppercase tracking-[0.2em] text-[#C8A86B]">
-          <MapPin className="h-3 w-3" />
-          {p.location}
-        </div>
-        <h3 className="mt-2 font-serif text-2xl text-[#F7F5F2]">{p.name}</h3>
-        <div className="mt-1 flex items-center gap-2 text-xs text-[#F7F5F2]/50">
-          <Building2 className="h-3 w-3" />
-          {p.developer}
+      {/* Bottom Content */}
+      <div className="relative z-10 p-5">
+        <h3 className="font-sans text-xl font-bold text-white transition-colors group-hover:text-[#C5A265]">
+          {p.name}
+        </h3>
+
+        <div className="mt-1.5 flex items-center gap-1.5 font-sans text-[0.72rem] font-medium text-[#C5A265]">
+          <MapPin className="h-3.5 w-3.5 text-[#C5A265]" />
+          <span>{p.location}</span>
         </div>
 
-        {/* hover reveal */}
-        <div className="grid grid-rows-[0fr] transition-all duration-500 ease-out group-hover:grid-rows-[1fr]">
-          <div className="overflow-hidden">
-            <p className="pt-3 text-xs leading-relaxed text-[#F7F5F2]/65">{p.potential}</p>
-          </div>
-        </div>
+        <p className="mt-1 font-sans text-xs text-white/60">
+          {p.specs}
+        </p>
 
-        <div className="mt-4 flex items-end justify-between border-t border-[#F7F5F2]/8 pt-4">
+        {/* Card Footer Divider */}
+        <div className="mt-4 flex items-end justify-between border-t border-white/15 pt-3">
           <div>
-            <div className="text-[0.6rem] uppercase tracking-[0.2em] text-[#F7F5F2]/40">
-              Starting
-            </div>
-            <div className="font-serif text-xl text-[#F7F5F2] tabular">{p.price}</div>
-          </div>
-          <a
-            href="#contact"
-            className="group/btn flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.18em] text-[#F7F5F2] transition-colors hover:text-[#C8A86B]"
-          >
-            Enquire
-            <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[#F7F5F2]/20 transition-all group-hover/btn:border-[#C8A86B] group-hover/btn:bg-[#C8A86B] group-hover/btn:text-[#0B0D10]">
-              <ArrowUpRight className="h-4 w-4" />
+            <span className="block font-sans text-[0.62rem] font-medium text-white/50">
+              Starting from
             </span>
-          </a>
+            <span className="font-sans text-lg font-bold text-white">
+              {p.price}
+            </span>
+          </div>
+
+          <div className="font-sans text-xs font-semibold text-[#C5A265]">
+            {p.roi}
+          </div>
         </div>
       </div>
-
-      {/* location map pulse (decorative) */}
-      <span className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-        <span className="relative flex h-10 w-10 items-center justify-center">
-          <span className="absolute h-10 w-10 rounded-full border border-[#C8A86B]/40 animate-pulse-node" />
-          <span className="h-2 w-2 rounded-full bg-[#C8A86B]" />
-        </span>
-      </span>
     </article>
   );
 }
@@ -153,62 +119,82 @@ export function FeaturedOpportunities() {
   const scroll = (dir: "l" | "r") => {
     const el = scroller.current;
     if (!el) return;
-    el.scrollBy({ left: dir === "l" ? -440 : 440, behavior: "smooth" });
+    el.scrollBy({ left: dir === "l" ? -310 : 310, behavior: "smooth" });
   };
 
   return (
-    <section id="opportunities" className="relative overflow-hidden bg-[#0B0D10] py-24 lg:py-32">
-      <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
-        <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <SectionHeading
-            eyebrow="Featured Opportunities"
-            title="Investment-grade assets,"
-            highlight="curated with intent."
-            description="A selection of Dubai's most compelling current opportunities — each evaluated for yield, growth, and resilience before it reaches you."
-          />
-          <Reveal direction="left" delay={0.12}>
-            <div className="hidden items-center gap-2 lg:flex">
+    <section id="opportunities" className="relative overflow-hidden bg-[#090B0E] py-20 lg:py-28 text-[#F7F5F2]">
+      <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12">
+          
+          {/* Left Column: Heading, Description & CTA */}
+          <div className="flex flex-col items-start lg:col-span-4 lg:pr-4">
+            <Reveal direction="up" delay={0.05}>
+              <span className="font-sans text-xs font-semibold uppercase tracking-[0.22em] text-[#C5A265]">
+                FEATURED OPPORTUNITIES
+              </span>
+            </Reveal>
+
+            <Reveal direction="up" delay={0.15}>
+              <h2 className="mt-4 font-serif text-3xl font-bold leading-[1.12] text-white sm:text-4xl lg:text-[2.6rem]">
+                Invest in Dubai&apos;s <br />
+                Most Promising <br />
+                <span className="text-[#C5A265]">Properties</span>
+              </h2>
+            </Reveal>
+
+            <Reveal direction="up" delay={0.25}>
+              <p className="mt-5 max-w-xs font-sans text-xs sm:text-sm leading-relaxed text-[#9A968E]">
+                Curated selection of high-potential investment opportunities with
+                strong ROI and capital appreciation.
+              </p>
+            </Reveal>
+
+            <Reveal direction="up" delay={0.35}>
+              <a
+                href="#contact"
+                className="mt-8 inline-flex items-center gap-3 border border-[#C5A265] bg-transparent px-6 py-3.5 font-sans text-[0.72rem] font-bold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:bg-[#C5A265] hover:text-[#090B0E]"
+              >
+                <span>EXPLORE ALL PROPERTIES</span>
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </Reveal>
+          </div>
+
+          {/* Right Column: Carousel & Arrow Controls */}
+          <div className="relative flex items-center lg:col-span-8">
+            <div
+              ref={scroller}
+              className="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 pr-12 pt-2 scroll-smooth"
+              style={{ scrollbarWidth: "none" }}
+            >
+              {PROPERTIES.map((p) => (
+                <div key={p.name} className="snap-start">
+                  <PropertyCard p={p} />
+                </div>
+              ))}
+            </div>
+
+            {/* Right Carousel Controls */}
+            <div className="hidden flex-col gap-3 pl-4 lg:flex">
               <button
                 onClick={() => scroll("l")}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-[#F7F5F2]/15 text-[#F7F5F2]/70 transition-all hover:border-[#C8A86B] hover:text-[#C8A86B]"
-                aria-label="Previous"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white transition-all duration-300 hover:border-[#C5A265] hover:text-[#C5A265] hover:bg-white/5"
+                aria-label="Previous property"
               >
-                <ArrowLeft className="h-4 w-4" />
+                <ChevronLeft className="h-5 w-5" />
               </button>
               <button
                 onClick={() => scroll("r")}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-[#F7F5F2]/15 text-[#F7F5F2]/70 transition-all hover:border-[#C8A86B] hover:text-[#C8A86B]"
-                aria-label="Next"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white transition-all duration-300 hover:border-[#C5A265] hover:text-[#C5A265] hover:bg-white/5"
+                aria-label="Next property"
               >
-                <ArrowRight className="h-4 w-4" />
+                <ChevronRight className="h-5 w-5" />
               </button>
             </div>
-          </Reveal>
-        </div>
-      </div>
+          </div>
 
-      <Reveal className="relative" delay={0.1}>
-        <div
-          ref={scroller}
-          className="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 sm:px-8 lg:px-12 lg:gap-5"
-          style={{ scrollbarWidth: "none" }}
-        >
-          <div className="hidden lg:block" />
-          {PROPERTIES.map((p) => (
-            <div key={p.name} className="snap-start">
-              <PropertyCard p={p} />
-            </div>
-          ))}
-          <div className="shrink-0 pr-5 lg:pr-12" />
         </div>
-      </Reveal>
-
-      {/* drag hint */}
-      <div className="mx-auto mt-6 max-w-[1440px] px-5 sm:px-8 lg:px-12">
-        <p className="flex items-center gap-2 text-[0.6rem] uppercase tracking-[0.24em] text-[#9A968E]">
-          <ArrowRight className="h-3 w-3 text-[#C8A86B]" />
-          Drag or swipe to explore the collection
-        </p>
       </div>
     </section>
   );
