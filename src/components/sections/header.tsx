@@ -5,6 +5,7 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import logoMobile from "../../../public/brand/logo-mobile.svg";
 
 // Streamlined linear navigation items for desktop header bar
 const NAV = [
@@ -81,10 +82,9 @@ export function Header() {
             className="relative flex h-10 w-10 shrink-0 items-center justify-center p-0.5"
           >
             <Image
-              src="/brand/logo-mobile.svg"
+              src={logoMobile}
               alt="Hamdan Al Mansoori emblem"
               fill
-              sizes="40px"
               className="object-contain"
             />
           </motion.span>

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Instagram, Linkedin, Twitter, ArrowUpRight } from "lucide-react";
+import logoFull from "../../../public/brand/logo-full.svg";
 
 const QUICK_LINKS = [
   { label: "Home", href: "#home" },
@@ -37,10 +38,9 @@ export function Footer() {
             <a href="#home" className="inline-block" aria-label="Hamdan Al Mansoori Real Estate LLC — Home">
               <div className="relative h-28 w-60">
                 <Image
-                  src="/brand/logo-full.svg"
+                  src={logoFull}
                   alt="Hamdan Al Mansoori Real Estate LLC Full Logo"
                   fill
-                  sizes="240px"
                   className="object-contain object-left"
                 />
               </div>
