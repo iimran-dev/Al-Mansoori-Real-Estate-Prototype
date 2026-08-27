@@ -22,7 +22,7 @@ export default function Home() {
       <InvestmentJourney />
       <TrackRecord />
       <Testimonials />
-      {/* <MarketInsights /> */}
+      <MarketInsights />
       <FinalCTA />
       <Footer />
     </main>
