@@ -24,7 +24,7 @@ const PROPERTIES: Property[] = [
     price: "AED 1.6M",
     roi: "ROI up to 8.5%",
     tag: "HIGH YIELD",
-    image: "/images/opportunities/sobha-one.jpg",
+    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=800&auto=format&fit=crop",
   },
   {
     name: "Emaar Marina Shores",
@@ -33,7 +33,7 @@ const PROPERTIES: Property[] = [
     price: "AED 2.2M",
     roi: "ROI up to 7.8%",
     tag: "OFF PLAN",
-    image: "/images/opportunities/marina-shores.jpg",
+    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop",
   },
   {
     name: "Palm Beach Towers",
@@ -42,7 +42,7 @@ const PROPERTIES: Property[] = [
     price: "AED 5.8M",
     roi: "ROI up to 6.5%",
     tag: "LUXURY",
-    image: "/images/opportunities/palm-beach.jpg",
+    image: "https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=800&auto=format&fit=crop",
   },
   {
     name: "JLT Business Tower",
@@ -51,7 +51,7 @@ const PROPERTIES: Property[] = [
     price: "AED 1.3M",
     roi: "ROI up to 9.2%",
     tag: "COMMERCIAL",
-    image: "/images/opportunities/jlt-tower.jpg",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop",
   },
 ];
 

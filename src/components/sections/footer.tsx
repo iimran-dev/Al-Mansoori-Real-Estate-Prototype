@@ -34,24 +34,16 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           {/* brand */}
           <div className="lg:col-span-4">
-            <a href="#home" className="flex items-center gap-3">
-              <span className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border border-[#C8A86B]/40">
+            <a href="#home" className="inline-block" aria-label="Hamdan Al Mansoori Real Estate LLC — Home">
+              <div className="relative h-28 w-60">
                 <Image
-                  src="/brand/logo.jpeg"
-                  alt="Hamdan Al Mansoori emblem"
+                  src="/brand/logo-full.svg"
+                  alt="Hamdan Al Mansoori Real Estate LLC Full Logo"
                   fill
-                  sizes="48px"
-                  className="object-cover"
+                  sizes="240px"
+                  className="object-contain object-left"
                 />
-              </span>
-              <span className="flex flex-col leading-none">
-                <span className="font-serif text-lg tracking-wide text-[#F7F5F2]">
-                  Hamdan Al Mansoori
-                </span>
-                <span className="mt-1 text-[0.56rem] uppercase tracking-[0.34em] text-[#C8A86B]">
-                  Real Estate LLC
-                </span>
-              </span>
+              </div>
             </a>
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-[#9A968E]">
               Dubai real estate investment advisory — building wealth and

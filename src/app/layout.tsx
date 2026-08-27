@@ -45,6 +45,11 @@ export const metadata: Metadata = {
     description:
       "Building wealth. Creating legacies. Premium Dubai real estate investment advisory.",
   },
+  icons: {
+    icon: "/brand/logo-mobile.svg",
+    shortcut: "/brand/logo-mobile.svg",
+    apple: "/brand/logo-mobile.svg",
+  },
 };
 
 export default function RootLayout({

@@ -1,148 +1,132 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
-import { SectionHeading } from "@/components/luxury/section-heading";
+import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/luxury/reveal";
 
-const FEATURED = {
-  title: "Dubai's 2025 yield map: where capital is finding its edge",
-  category: "Market Analysis",
-  date: "March 2025",
-  read: "8 min read",
-  author: "Hamdan Al Mansoori",
-  image: "/images/article-featured.png",
-  excerpt:
-    "A community-by-community look at where Dubai's rental yield is holding — and where appreciation is quietly compounding beneath the headline numbers.",
+type Article = {
+  category: string;
+  date: string;
+  title: string;
+  image: string;
 };
 
-const ARTICLES = [
+const ARTICLES: Article[] = [
   {
-    title: "Off-plan strategy: reading the launch cycle with discipline",
-    category: "Investment Guides",
-    date: "Feb 2025",
-    read: "6 min",
-    image: "/images/property-offplan.png",
+    category: "MARKET UPDATE",
+    date: "May 15, 2024",
+    title: "Dubai Real Estate Market Outlook 2024",
+    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=800&auto=format&fit=crop",
   },
   {
-    title: "The Golden Visa and the investor's long horizon",
-    category: "Golden Visa",
-    date: "Jan 2025",
-    read: "5 min",
-    image: "/images/property-penthouse.png",
+    category: "INVESTMENT GUIDE",
+    date: "May 10, 2024",
+    title: "Why Off-Plan Properties Offer Higher ROI",
+    image: "https://images.unsplash.com/photo-1546412414-e1885259563a?q=80&w=800&auto=format&fit=crop",
   },
   {
-    title: "Emerging communities: the quiet outperformers of 2025",
-    category: "Market Trends",
-    date: "Jan 2025",
-    read: "7 min",
-    image: "/images/dubai-skyline-night.png",
+    category: "GOLDEN VISA",
+    date: "May 5, 2024",
+    title: "How to Get UAE Golden Visa Through Property",
+    image: "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?q=80&w=800&auto=format&fit=crop",
   },
   {
-    title: "Building a resilient Dubai portfolio across cycles",
-    category: "Investment Strategy",
-    date: "Dec 2024",
-    read: "9 min",
-    image: "/images/property-villa.png",
+    category: "AREA GUIDE",
+    date: "Apr 28, 2024",
+    title: "Top Areas for Investment in Dubai 2024",
+    image: "https://images.unsplash.com/photo-1518684079-3c830dcef090?q=80&w=800&auto=format&fit=crop",
   },
 ];
 
 export function MarketInsights() {
   return (
-    <section id="insights" className="relative bg-[#0B0D10] py-24 lg:py-32">
-      <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
-        <div className="mb-16 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <SectionHeading
-            eyebrow="Market Insights"
-            title="Intelligence for the"
-            highlight="considered investor."
-            description="Editorial perspectives on Dubai's market — written for those who treat property as a discipline, not a bet."
-          />
-          <Reveal direction="left" delay={0.12}>
-            <a
-              href="#insights"
-              className="group flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#F7F5F2]/70 transition-colors hover:text-[#C8A86B]"
-            >
-              View all insights
-              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
-          </Reveal>
-        </div>
+    <section id="insights" className="relative bg-[#FAF8F5] py-16 sm:py-20 lg:py-24 text-[#1A1A1A] overflow-hidden border-t border-black/5">
+      <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-center lg:gap-8">
+          
+          {/* Left Column: Heading, Description & CTA */}
+          <div className="flex flex-col items-start lg:col-span-4 lg:pr-4">
+            <Reveal direction="up" delay={0.05}>
+              <span className="font-sans text-[11px] sm:text-xs font-semibold uppercase tracking-[0.24em] text-[#C5A265]">
+                MARKET INSIGHTS
+              </span>
+            </Reveal>
 
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
-          {/* Featured */}
-          <Reveal className="lg:col-span-7" direction="up">
-            <a href="#insights" className="group relative block h-full overflow-hidden border border-[#F7F5F2]/8 bg-[#141519] transition-colors duration-500 hover:border-[#C8A86B]/40">
-              <div className="relative h-64 overflow-hidden sm:h-80">
-                <Image
-                  src={FEATURED.image}
-                  alt={FEATURED.title}
-                  fill
-                  sizes="(min-width:1024px) 60vw, 100vw"
-                  className="object-cover opacity-80 transition-all duration-[1.2s] ease-out group-hover:scale-105 group-hover:opacity-95"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#141519] via-[#141519]/40 to-transparent" />
-                <span className="absolute left-5 top-5 glass-gold px-3 py-1.5 text-[0.6rem] uppercase tracking-[0.22em] text-[#C8A86B]">
-                  Featured
-                </span>
-              </div>
-              <div className="p-7 lg:p-9">
-                <div className="flex items-center gap-3 text-[0.62rem] uppercase tracking-[0.2em] text-[#C8A86B]">
-                  <span>{FEATURED.category}</span>
-                  <span className="h-1 w-1 rounded-full bg-[#C8A86B]/60" />
-                  <span className="text-[#9A968E]">{FEATURED.date}</span>
-                  <span className="text-[#9A968E]">· {FEATURED.read}</span>
-                </div>
-                <h3 className="mt-4 font-serif text-2xl leading-snug text-[#F7F5F2] sm:text-3xl">
-                  {FEATURED.title}
-                </h3>
-                <p className="mt-4 max-w-xl text-sm leading-relaxed text-[#F7F5F2]/60">
-                  {FEATURED.excerpt}
-                </p>
-                <div className="mt-6 flex items-center justify-between border-t border-[#F7F5F2]/8 pt-5">
-                  <span className="text-xs text-[#9A968E]">By {FEATURED.author}</span>
-                  <span className="group/btn flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.18em] text-[#F7F5F2] transition-colors group-hover/btn:text-[#C8A86B]">
-                    Read
-                    <ArrowUpRight className="h-4 w-4" />
-                  </span>
-                </div>
-              </div>
-            </a>
-          </Reveal>
+            <Reveal direction="up" delay={0.15}>
+              <h2 className="mt-3 font-serif text-3xl font-medium leading-[1.18] text-[#1A1A1A] sm:text-4xl lg:text-[2.65rem]">
+                Stay Ahead with <br />
+                Market Insights
+              </h2>
+            </Reveal>
 
-          {/* Supporting articles */}
-          <div className="grid grid-cols-1 gap-6 lg:col-span-5">
-            {ARTICLES.map((a, i) => (
-              <Reveal key={a.title} direction="up" delay={i * 0.08}>
-                <a href="#insights" className="group grid grid-cols-12 gap-4 border border-[#F7F5F2]/8 bg-[#141519] p-3 transition-colors duration-500 hover:border-[#C8A86B]/40">
-                  <div className="relative col-span-4 aspect-square overflow-hidden sm:col-span-4">
-                    <Image
-                      src={a.image}
-                      alt={a.title}
-                      fill
-                      sizes="120px"
-                      className="object-cover opacity-75 transition-all duration-700 group-hover:scale-110 group-hover:opacity-95"
-                    />
-                  </div>
-                  <div className="col-span-8 flex flex-col justify-center pr-2">
-                    <div className="flex items-center gap-2 text-[0.58rem] uppercase tracking-[0.2em] text-[#C8A86B]">
-                      <span>{a.category}</span>
-                      <span className="h-1 w-1 rounded-full bg-[#C8A86B]/60" />
-                      <span className="text-[#9A968E]">{a.read}</span>
-                    </div>
-                    <h4 className="mt-2 font-serif text-lg leading-snug text-[#F7F5F2] transition-colors group-hover:text-[#C8A86B]">
-                      <span className="bg-gradient-to-r from-[#C8A86B] to-[#C8A86B] bg-[length_0%_1px] bg-left-bottom bg-no-repeat transition-all duration-500 group-hover:bg-[length_100%_1px]">
-                        {a.title}
-                      </span>
-                    </h4>
-                    <div className="mt-2 text-[0.62rem] text-[#9A968E]">{a.date}</div>
-                  </div>
-                </a>
-              </Reveal>
-            ))}
+            <Reveal direction="up" delay={0.25}>
+              <p className="mt-4 max-w-sm font-sans text-xs sm:text-sm leading-relaxed text-[#555555]">
+                Expert analysis, market trends, and investment guides to help you make informed decisions.
+              </p>
+            </Reveal>
+
+            <Reveal direction="up" delay={0.35}>
+              <a
+                href="#insights"
+                className="mt-8 inline-flex items-center gap-3 border border-[#C5A265] bg-transparent px-6 py-3.5 font-sans text-[0.7rem] font-bold uppercase tracking-[0.2em] text-[#1A1A1A] transition-all duration-300 hover:bg-[#C5A265] hover:text-white group"
+              >
+                <span>VIEW ALL INSIGHTS</span>
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
+            </Reveal>
           </div>
+
+          {/* Right Column: 4 White Article Cards */}
+          <div className="lg:col-span-8">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 sm:gap-5">
+              {ARTICLES.map((article, idx) => (
+                <Reveal key={article.title} direction="up" delay={0.08 * (idx + 1)} className="h-full">
+                  <a
+                    href="#insights"
+                    className="group flex flex-col justify-between h-full overflow-hidden rounded-2xl bg-white shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-black/5 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)]"
+                  >
+                    {/* Top Image Preview */}
+                    <div className="relative aspect-[16/10] w-full overflow-hidden">
+                      <Image
+                        src={article.image}
+                        alt={article.title}
+                        fill
+                        sizes="(min-width: 1024px) 20vw, (min-width: 640px) 40vw, 100vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+
+                    {/* Card Body */}
+                    <div className="flex flex-col justify-between p-5 flex-1 bg-white">
+                      <div>
+                        {/* Metadata Header Row */}
+                        <div className="flex items-center justify-between font-sans text-[10px] font-bold uppercase tracking-wider text-[#C5A265]">
+                          <span>{article.category}</span>
+                          <span className="text-[#888888] font-normal tracking-normal text-[10px]">{article.date}</span>
+                        </div>
+
+                        {/* Title */}
+                        <h3 className="mt-3 font-serif text-sm sm:text-[0.95rem] font-bold leading-snug text-[#1A1A1A] group-hover:text-[#C5A265] transition-colors duration-300">
+                          {article.title}
+                        </h3>
+                      </div>
+
+                      {/* Read More Link */}
+                      <div className="mt-5 pt-3 border-t border-black/5 flex items-center gap-1.5 font-sans text-xs font-semibold text-[#C5A265]">
+                        <span>Read More</span>
+                        <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                      </div>
+                    </div>
+
+                  </a>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
   );
 }
+

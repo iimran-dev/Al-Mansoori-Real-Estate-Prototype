@@ -23,7 +23,7 @@ export function FinalCTA() {
     >
       <motion.div style={{ y }} className="absolute inset-0 scale-110">
         <Image
-          src="/images/dubai-skyline-night.png"
+          src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1920&auto=format&fit=crop"
           alt="Dubai skyline at night"
           fill
           sizes="100vw"

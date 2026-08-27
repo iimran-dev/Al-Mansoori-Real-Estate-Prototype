@@ -10,6 +10,7 @@ import {
   TrendingUp,
   Users,
   Play,
+  User,
 } from "lucide-react";
 import { RevealWords } from "@/components/luxury/reveal";
 
@@ -65,7 +66,7 @@ export function Hero() {
         className="absolute inset-0 z-0"
       >
         <Image
-          src="/images/dubai-skyline-unsplash.jpg"
+          src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1920&auto=format&fit=crop"
           alt="Dubai skyline at dusk with Burj Khalifa"
           fill
           priority
@@ -178,65 +179,40 @@ export function Hero() {
             className="relative mx-auto w-full max-w-[280px] xs:max-w-[320px] sm:max-w-[340px] lg:max-w-[355px]"
           >
             {/* Card Main Container */}
-            <div className="relative overflow-hidden rounded-[20px] border border-white/15 bg-[#14171C]/85 shadow-2xl backdrop-blur-xl transition-transform duration-500 hover:border-[#C5A265]/40">
+            <div className="relative overflow-hidden rounded-[24px] border border-white/15 bg-[#14171C]/90 shadow-2xl backdrop-blur-xl transition-transform duration-500 hover:border-[#C5A265]/40">
               
-              {/* Portrait Image */}
-              <div className="relative aspect-[4/4.2] w-full overflow-hidden bg-[#1A1D24]">
-                <Image
-                  src=""
-                  alt="Hamdan Al Mansoori portrait placeholder"
-                  fill
-                  sizes="(min-width: 1024px) 355px, 85vw"
-                  className="object-cover object-top"
-                />
+              {/* Default Profile Avatar Area */}
+              <div className="relative aspect-[4/4.2] w-full overflow-hidden bg-[#1A1D24] flex items-center justify-center">
+                {/* Default User Avatar Circle */}
+                <div className="flex h-28 w-28 items-center justify-center rounded-full bg-[#FAF8F5]/10 border border-[#C5A265]/40 text-[#C5A265] shadow-inner">
+                  <User className="h-14 w-14 stroke-[1.5]" />
+                </div>
                 
-                {/* Dark Gradient Overlay at bottom of portrait */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#14171C] via-[#14171C]/40 to-transparent" />
-                
-                {/* Red Dots Accent (Matches reference screenshot) */}
-                <span className="absolute right-5 top-1/2 h-1.5 w-1.5 rounded-full bg-red-500 shadow-sm shadow-red-500/50" />
-                <span className="absolute right-10 top-2/3 h-2 w-2 rounded-full bg-red-500/80 shadow-sm shadow-red-500/50" />
+                {/* Dark Gradient Overlay at bottom */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#14171C] via-[#14171C]/30 to-transparent pointer-events-none" />
               </div>
 
               {/* Card Information & Controls */}
-              <div className="relative -mt-12 px-4 pb-5 pt-1 sm:px-6 sm:pb-6">
+              <div className="relative -mt-10 px-5 pb-6 pt-1 sm:px-6 sm:pb-7">
                 {/* Founder Name & Subtitle */}
-                <h3 className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-[#F7F5F2]">
+                <h3 className="font-sans text-2xl sm:text-[1.65rem] font-bold tracking-tight text-white leading-snug">
                   Hamdan Al Mansoori
                 </h3>
-                <p className="mt-0.5 font-sans text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-[#C5A265]/90">
-                  Founder & CEO
+                <p className="mt-1 font-sans text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-[#C5A265]">
+                  FOUNDER & CEO
                 </p>
 
-                {/* Cursive Signature Graphic */}
-                <div className="my-2 h-7 w-full max-w-[200px] text-[#C5A265] opacity-90">
-                  <svg viewBox="0 0 240 50" fill="none" className="h-full w-full">
-                    <motion.path
-                      d="M10 36 C 25 12, 40 10, 48 28 S 68 40, 78 20 S 95 10, 104 28 C 114 40, 128 28, 134 20 S 152 8, 162 26 S 180 38, 194 22 L 220 20"
-                      stroke="currentColor"
-                      strokeWidth="1.6"
-                      strokeLinecap="round"
-                      initial={{ pathLength: 0 }}
-                      animate={{ pathLength: 1 }}
-                      transition={{ delay: 1.2, duration: 1.6, ease: "easeInOut" }}
-                    />
-                    <text x="12" y="44" fill="currentColor" font-family="serif" font-style="italic" font-size="16" opacity="0.6">
-                      Hamdan Al Mansoori
-                    </text>
-                  </svg>
-                </div>
-
                 {/* Watch Story Button */}
-                <div className="mt-3 flex items-center">
-                  <button className="group flex items-center gap-2.5 text-left transition-all">
-                    <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[#C5A265] bg-[#C5A265]/10 text-[#C5A265] transition-all duration-300 group-hover:scale-105 group-hover:bg-[#C5A265] group-hover:text-[#090B0E]">
-                      <Play className="h-3.5 w-3.5 fill-current translate-x-0.5" />
+                <div className="mt-4 flex items-center">
+                  <button className="group flex items-center gap-3 text-left transition-all">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[#C5A265]/70 bg-black/30 text-[#C5A265] transition-all duration-300 group-hover:scale-105 group-hover:bg-[#C5A265] group-hover:text-[#090B0E]">
+                      <Play className="h-4 w-4 fill-current translate-x-0.5" />
                     </span>
                     <div className="flex flex-col leading-tight">
-                      <span className="font-sans text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#F7F5F2] group-hover:text-[#C5A265] transition-colors">
+                      <span className="font-sans text-[0.68rem] font-bold uppercase tracking-[0.16em] text-white group-hover:text-[#C5A265] transition-colors">
                         WATCH
                       </span>
-                      <span className="font-sans text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#F7F5F2] group-hover:text-[#C5A265] transition-colors">
+                      <span className="font-sans text-[0.68rem] font-bold uppercase tracking-[0.16em] text-white group-hover:text-[#C5A265] transition-colors">
                         MY STORY
                       </span>
                     </div>

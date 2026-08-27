@@ -48,7 +48,7 @@ export function FounderStory() {
             <div className="relative">
               <div className="relative aspect-[3/4] overflow-hidden">
                 <Image
-                  src="/images/founder-editorial.png"
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop"
                   alt="Hamdan Al Mansoori — Founder & Investment Advisor"
                   fill
                   sizes="(min-width:1024px) 40vw, 100vw"
